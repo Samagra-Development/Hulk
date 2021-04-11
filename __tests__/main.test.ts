@@ -1,31 +1,16 @@
-import { Delays, greeter } from '../src/main';
+import FileBackend from "../src/interfaces/impl/backends/FileBackend";
+import { TaskStatus } from "../src/interfaces/ITaskBackend";
 
-describe('greeter function', () => {
-  // Read more about fake timers
-  // http://facebook.github.io/jest/docs/en/timer-mocks.html#content
-  jest.useFakeTimers();
-
-  const name = 'John';
-  let hello: string;
-
-  // Act before assertions
-  beforeAll(async () => {
-    const p: Promise<string> = greeter(name);
-    jest.runOnlyPendingTimers();
-    hello = await p;
-  });
-
-  // Assert if setTimeout was called properly
-  it('delays the greeting by 2 seconds', () => {
-    expect(setTimeout).toHaveBeenCalledTimes(1);
-    expect(setTimeout).toHaveBeenLastCalledWith(
-      expect.any(Function),
-      Delays.Long,
-    );
-  });
-
-  // Assert greeter result
-  it('greets a user with `Hello, {name}` message', () => {
-    expect(hello).toBe(`Hello, ${name}`);
-  });
+describe('filebackend', () => {
+  test("should update status", () => {
+    const fileBackend = new FileBackend(__dirname + "/resources/backend.json");
+    const task1 = fileBackend.getTask("1");
+    // expect(task1.status).toEqual("queued");
+    expect(task1).toMatchSnapshot();
+    fileBackend.updateTask("2", TaskStatus.processing, 10);
+    
+    const task2 = fileBackend.getTask("2");
+    expect(task2.progress).toEqual(10);
+    expect(task2).toMatchSnapshot();
+  })
 });

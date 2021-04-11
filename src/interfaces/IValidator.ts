@@ -1,0 +1,3 @@
+interface IValidator {
+  validate(): boolean;
+}

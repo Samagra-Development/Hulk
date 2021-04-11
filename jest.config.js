@@ -1,7 +1,8 @@
 module.exports = {
   testEnvironment: 'node',
   transform: {
-    "^.+\\.tsx?$": "ts-jest"
+    "^.+\\.ts?$": "ts-jest",
+    // "^.+\\.ts?$": "babel-jest"
   },
   moduleFileExtensions: [
     "ts",
@@ -11,6 +12,7 @@ module.exports = {
     "json",
     "node",
   ],
+  modulePathIgnorePatterns: ["src/backend.json"],
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|js)x?$',
   coverageDirectory: 'coverage',
   collectCoverageFrom: [

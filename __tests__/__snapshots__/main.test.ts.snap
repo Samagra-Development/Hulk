@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`filebackend should update status 1`] = `
+Object {
+  "progress": 0,
+  "status": "queued",
+}
+`;
+
+exports[`filebackend should update status 2`] = `
+Object {
+  "progress": 10,
+  "status": 1,
+}
+`;

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+"{
+  \\"userId\\": 10,
+  \\"id\\": 200,
+  \\"title\\": \\"ipsam aperiam voluptates qui\\",
+  \\"completed\\": false
+}"
+`;

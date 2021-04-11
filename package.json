@@ -7,9 +7,12 @@
   },
   "devDependencies": {
     "@types/jest": "~26.0.20",
-    "@types/node": "~14.14.31",
+    "@types/node": "^14.14.37",
+    "@types/uuid": "^3.4.5",
     "@typescript-eslint/eslint-plugin": "~4.16.1",
     "@typescript-eslint/parser": "~4.16.1",
+    "babel-jest": "^26.6.3",
+    "uuid": "^3.3.3",
     "eslint": "~7.21.0",
     "eslint-config-prettier": "~8.1.0",
     "eslint-plugin-jest": "~24.1.5",
@@ -18,13 +21,19 @@
     "rimraf": "~3.0.2",
     "ts-jest": "~26.5.2",
     "tsutils": "~3.20.0",
-    "typescript": "~4.2.2"
+    "typescript": "~4.2.2",
+    "ts-node": "^8.4.1",
+    "tsc-watch": "^4.0.0",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-plugin-prettier": "^2.0.1"
   },
   "scripts": {
     "start": "node build/src/main.js",
     "clean": "rimraf coverage build tmp",
-    "build": "tsc -p tsconfig.release.json",
-    "build:watch": "tsc -w -p tsconfig.release.json",
+    "build": "tsc -p tsconfig.release.json --resolveJsonModule",
+    "build:watch": "tsc -w -p tsconfig.release.json --resolveJsonModule",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
@@ -32,6 +41,9 @@
   "author": "Jakub Synowiec <github@jakubsynowiec.info>",
   "license": "Apache-2.0",
   "dependencies": {
+    "bullmq": "^1.15.1",
+    "got": "^11.8.2",
+    "ioredis": "^4.26.0",
     "tslib": "~2.1.0"
   },
   "volta": {
