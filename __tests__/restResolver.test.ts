@@ -1,8 +1,8 @@
 import RestContext from "../src/interfaces/impl/contexts/RestContext";
 import RestServiceResolver from "../src/interfaces/impl/serviceResolvers/RestServiceResolver";
 
-describe("", () => {
-    test("", async (done) => {
+describe("Rest Service Resolver", () => {
+    test("Simple GET Service", async (done) => {
         const resolver = new RestServiceResolver();
         const context: RestContext = new RestContext(
             "jsonplaceholder.typicode.com",
